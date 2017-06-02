@@ -51,10 +51,9 @@ __r="\[$(tput sgr0)\]"
 export PROMPT_COMMAND=__prompt_command
 
 function __prompt_command() {
-    local __exit
+    __exit="$?"
     local __e
     local __venv
-    __exit="$?"
     [ "$__exit" -eq 0 ] \
         && local __e="$__y" \
         || local __e="$__n"
