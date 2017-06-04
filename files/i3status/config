@@ -75,7 +75,7 @@ disk "/" {
 cpu_temperature 0 {
         format = "%degrees°C"
         max_threshold = 60
-        path="$HOME/cpu_temp"
+        path="/sys/class/hwmon/hwmon*/temp1_input"
 }
 
 cpu_usage {
