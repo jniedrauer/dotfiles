@@ -14,6 +14,7 @@ export TERM=xterm-256color
 export GOPATH=$HOME/gocode
 export JAVA_HOME=/etc/alternatives/jre
 export PATH=$GOPATH/bin:$PATH
+export GDK_SCALE=2
 
 alias cp='cp -i'
 alias mv='mv -i'
