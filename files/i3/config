@@ -76,19 +76,20 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec i3-msg exit
 
 bar {
     status_command i3status
     tray_output primary
     i3bar_command i3bar -t
     colors {
-        background          #00000099
-        separator           #293241
-        focused_workspace   #e0fbfc #3d5a80 #ffffff
-        inactive_workspace  #3d5a80 #293241 #ffffff
-        active_workspace    #e0fbfc #3d5a80 #ffffff
-        urgent_workspace    #ee6c4d #3d5a80 #ffffff
+        background          #00000000
+        statusline          #0197f6
+        separator           #00000000
+        focused_workspace   #0197f6 #000000 #0197f6
+        inactive_workspace  #134074 #000000 #134074
+        active_workspace    #134074 #000000 #134074
+        urgent_workspace    #ff206e #000000 #ff206e
     }
 }
 
@@ -107,7 +108,7 @@ bindsym $mod+z workspace back_and_forth
 bindsym $mod+Tab workspace next
 
 # Appearance
-gaps inner 15
+gaps inner 30
 smart_gaps on
 hide_edge_borders smart
 new_window pixel 2
@@ -115,13 +116,13 @@ new_float normal
 
 # Color
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #ee6c4d
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #3d5a80
-client.unfocused        #333333 #222222 #888888 #292d2e   #3d5a80
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          #7fb800 #000000 #ffffff #000000   #7fb800
+client.focused_inactive #0197f6 #000000 #ffffff #000000   #0197f6
+client.unfocused        #0197f6 #000000 #ffffff #000000   #0197f6
+client.urgent           #bf6900 #000000 #ffffff #000000   #bf6900
+client.placeholder      #000000 #000000 #ffffff #000000   #000000
 
-client.background       #ffffff
+client.background       #ffffff #000000 #ffffff #000000   #000000
 
 # Always fullscreen or floating
 for_window [class="Vlc"] fullscreen enable
@@ -132,12 +133,24 @@ for_window [class="GParted"] floating enable
 for_window [class="Tk"] floating enable
 for_window [class="Geeqie"] fullscreen enable
 
+floating_minimum_size 75 x 50
+floating_maximum_size 1920 x 1080
+
 # Startup settings
-exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
-exec --no-startup-id redshift
-exec --no-startup-id xhost + SI:localuser:root
-exec --no-startup-id xset s off
-exec --no-startup-id xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'libinput Accel Speed' -0.9
-exec --no-startup-id python3 ~/Pictures/wallpapers/wallpaper.py
-exec --no-startup-id /usr/local/bin/xinput.sh
 exec --no-startup-id nm-applet
+exec --no-startup-id feh --bg-scale "$(find ~/Pictures/wallpapers -type f | shuf -n 1)"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous

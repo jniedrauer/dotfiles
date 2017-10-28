@@ -1,6 +1,6 @@
-__user_color='\033[38;5;12m'
+__user_color='\033[38;5;45m'
 __symbol_color="$(tput sgr0)"
-__host_color='\033[38;5;30m'
-__path_color='\033[38;5;142m'
+__host_color='\033[38;5;112m'
+__path_color='\033[38;5;247m'
 __success_color='\033[38;5;46m'
 __fail_color='\033[38;5;196m'

@@ -9,7 +9,7 @@ fi
 [ -z "$PS1" ] && return
 
 export EDITOR=/usr/bin/vim
-export BROWSER=/usr/bin/firefox
+export BROWSER=~/.local/bin/firefox
 export TERM=xterm-256color
 export GOPATH=$HOME/gocode
 export JAVA_HOME=/etc/alternatives/jre
@@ -22,25 +22,11 @@ alias rm='rm -i'
 alias vi='vim'
 alias copy="xclip -sel c < $2"
 
-function agent() {
-    [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
-    ssh-add "$@"
-}
-
 function cd() {
     local __dest
     __dest="$*"
     [ $# -eq 0 ] && __dest=$HOME
     builtin cd "$__dest" && ls -a --group-directories-first
-}
-
-ap() {
-    playbook=$1
-    switch=$2
-    env=$3
-    shift 3
-    printf 'Using profile: %s\n' "${env%%/*}"
-    AWS_PROFILE="${env%%/*}" ansible-playbook "$playbook" "$switch" "$env" "$@"
 }
 
 # Set history format and update after every command
