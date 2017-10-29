@@ -14,13 +14,15 @@ export TERM=xterm-256color
 export GOPATH=$HOME/gocode
 export JAVA_HOME=/etc/alternatives/jre
 export PATH=$GOPATH/bin:$PATH
-export GDK_SCALE=2
+export GDK_SCALE=1
 
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias vi='vim'
 alias copy="xclip -sel c < $2"
+alias wp='feh --bg-scale "$(find ~/Pictures/wallpapers -type f | shuf -n 1)"'
+alias eog='eog -f %U'
 
 function cd() {
     local __dest

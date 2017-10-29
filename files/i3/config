@@ -116,25 +116,24 @@ new_float normal
 
 # Color
 # class                 border  backgr. text    indicator child_border
-client.focused          #7fb800 #000000 #ffffff #000000   #7fb800
-client.focused_inactive #0197f6 #000000 #ffffff #000000   #0197f6
-client.unfocused        #0197f6 #000000 #ffffff #000000   #0197f6
-client.urgent           #bf6900 #000000 #ffffff #000000   #bf6900
+client.focused          #7fb800 #000000 #ffffff #7fb800   #7fb800
+client.focused_inactive #0197f6 #000000 #ffffff #0197f6   #0197f6
+client.unfocused        #0197f6 #000000 #ffffff #0197f6   #0197f6
+client.urgent           #bf6900 #000000 #ffffff #bf6900   #bf6900
 client.placeholder      #000000 #000000 #ffffff #000000   #000000
 
-client.background       #ffffff #000000 #ffffff #000000   #000000
+client.background       #ffffff #000000 #ffffff #ffffff   #000000
 
 # Always fullscreen or floating
 for_window [class="Vlc"] fullscreen enable
 for_window [class="Vinagre"] floating enable
-for_window [class="Nautilus"] floating enable
 for_window [class="Eog"] fullscreen enable
 for_window [class="GParted"] floating enable
 for_window [class="Tk"] floating enable
 for_window [class="Geeqie"] fullscreen enable
 
 floating_minimum_size 75 x 50
-floating_maximum_size 1920 x 1080
+floating_maximum_size 3840 x 2160
 
 # Startup settings
 exec --no-startup-id nm-applet
@@ -146,8 +145,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo /usr/local/bin/backlight +
+bindsym XF86MonBrightnessDown exec sudo /usr/local/bin/backlight -
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
