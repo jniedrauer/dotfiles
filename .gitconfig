@@ -1,0 +1,50 @@
+[alias]
+    amend = commit --amend
+    br = branch
+    cm = commit
+    cmm = commit --no-edit
+    co = checkout
+    fe = fetch --all -p --tags
+    fixup = commit --amend -C HEAD
+    fu = fetch upstream
+    log = log --color --graph --pretty=colorful-oneline --abbrev-commit
+    lga = !git --no-replace-objects log --color --graph --pretty=colorful-oneline --abbrev-commit --all
+    ll = !git  --no-replace-objects log --color --graph --pretty=colorful-oneline --abbrev-commit --all --since=\"$(git show -s --pretty=format:'%cd' master~3)\"
+    pop = stash pop
+    rev = diff --staged -M
+    review = diff --staged
+    save = commit -m'savepoint'
+    st = status -sb
+    pull = pull --rebase
+
+[color]
+    ui = true
+
+[core]
+    editor = vim
+    excludesFiles = ~/.gitignore
+
+[merge]
+    tool = vimdiff
+
+[pretty]
+    colorful-oneline = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+
+[rerere]
+    enabled = true
+
+[user]
+	email = jniedrauer@gmail.com
+    name = Josiah Niedrauer
+
+[push]
+    default = simple
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+    required = true
+
+[lfs "customtransfer.bitbucket-media-api"]
+	path = /home/jniedrauer/git-lfs-media-adaptor/git-lfs-bitbucket-media-api
