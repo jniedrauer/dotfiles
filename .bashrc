@@ -12,7 +12,6 @@ export EDITOR=/usr/bin/vim
 export BROWSER=~/.local/bin/firefox
 export TERM=xterm-256color
 export GOPATH=$HOME/gocode
-export JAVA_HOME=/etc/alternatives/jre
 export PATH=$GOPATH/bin:$PATH
 export GDK_SCALE=1
 
@@ -21,10 +20,9 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias ls='ls --color=auto'
 alias vi='vim'
-alias copy="xclip -sel c < $2"
 alias wp='feh --bg-scale "$(find ~/Pictures/wallpapers -type f | shuf -n 1)"'
 alias eog='eog -f %U'
-alias cfg='/usr/bin/git --git-dir=/home/jniedrauer/.dotfiles/ --work-tree=/home/jniedrauer'
+alias cfg='git --git-dir=/home/jniedrauer/.dotfiles/ --work-tree=/home/jniedrauer'
 
 function cd() {
     local __dest
@@ -32,6 +30,29 @@ function cd() {
     [ $# -eq 0 ] && __dest=$HOME
     builtin cd "$__dest" && ls -a --group-directories-first
 }
+
+function copy() {
+    xclip -sel c < "$2"
+}
+
+# Distro specific aliases and env
+case "$(uname -s)" in
+     Linux*) __distro="$(awk -F '=' '/ID=/ {print $2}' /etc/os-release)" ;;
+    Darwin*) __distro=mac ;;
+esac
+
+case "$__distro" in
+      arch)
+        export JAVA_HOME=/usr/lib/jvm/default-runtime
+        ;;
+    fedora)
+        export JAVA_HOME=/etc/alternatives/jre
+        ;;
+       mac)
+        JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+        export JAVA_HOME
+        ;;
+esac
 
 # Set history format and update after every command
 HISTFILESIZE=10000
