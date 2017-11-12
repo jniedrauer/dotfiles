@@ -80,7 +80,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
     status_command i3status
-    tray_output primary
+#    tray_output primary
     i3bar_command i3bar -t
     colors {
         background          #00000099
@@ -100,6 +100,13 @@ bindsym Print exec gnome-screenshot
 
 # Start virt-manager
 bindsym $mod+Shift+v exec beesu virt-manager
+
+# MPC
+bindsym $mod+p exec mpc toggle
+bindsym $mod+o exec mpc next
+bindsym $mod+i exec mpc prev
+bindsym $mod+plus exec mpc volume \+5
+bindsym $mod+minus exec mpc volume \-5
 
 # Workstation fast switching
 workspace_auto_back_and_forth yes
@@ -141,3 +148,4 @@ exec --no-startup-id xinput set-prop 'Logitech G400s Optical Gaming Mouse' 'libi
 exec --no-startup-id python3 ~/Pictures/wallpapers/wallpaper.py
 exec --no-startup-id /usr/local/bin/xinput.sh
 exec --no-startup-id nm-applet
+exec --no-startup-id [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)

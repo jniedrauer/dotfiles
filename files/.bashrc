@@ -12,14 +12,19 @@ export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export TERM=xterm-256color
 export GOPATH=$HOME/gocode
-export JAVA_HOME=/etc/alternatives/jre
+export JAVA_HOME=/usr/lib/jvm/default-runtime
 export PATH=$GOPATH/bin:$PATH
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias vi='vim'
 alias copy="xclip -sel c < $2"
+alias vm='virt-manager --connect qemu:///session'
+alias pm='pacman'
+alias pa='pacaur'
+alias sudo='sudo '
 
 function agent() {
     [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
