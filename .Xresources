@@ -1,1 +1,59 @@
+# if HIDPI==1
 Xft.dpi: 192
+URxvt.internalBorder:  15
+# else
+Xft.dpi: 96
+URxvt.internalBorder:  7
+# endif
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+! URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! scroll inside of pagers
+URxvt*secondaryScreen: 1
+URxvt*secondaryScroll: 0
+
+URxvt*letterSpace: -1
+URxvt*font: xft:DejaVu Sans Mono:size=10
+
+URxvt*transparent: true
+URxvt*shading: 30
+URxvt*background: #000000
+URxvt*foreground: #ffffff
+URxvt*cursorColor: #666666
+
+URxvt*scrollBar: false
+
+*background 		: #263238
+*foreground 		: #eceff1
+
+! black
+*color0  			: #263238
+*color8  			: #37474f
+! red
+*color1  			: #ff9800
+*color9  			: #ffa74d
+! green
+*color2  			: #8bc34a
+*color10 			: #9ccc65
+! yellow
+*color3  			: #ffc107
+*color11 			: #ffa000
+! blue
+*color4  			: #03a9f4
+*color12 			: #81d4fa
+! magenta
+*color5  			: #e91e63
+*color13 			: #ad1457
+! cyan
+*color6  			: #009688
+*color14 			: #26a69a
+! white
+*color7  			: #cfd8dc
+*color15 			: #eceff1

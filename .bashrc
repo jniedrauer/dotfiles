@@ -8,11 +8,14 @@ fi
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+if [ -f ~/.dpi ]; then
+    . ~/.dpi
+fi
+
 export EDITOR=/usr/bin/vim
-export TERM=xterm-256color
+export TERM=rxvt-unicode-256color
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
-export GDK_SCALE=1
 
 alias cp='cp -i'
 alias mv='mv -i'
@@ -21,6 +24,7 @@ alias vi='vim'
 alias wp='feh --bg-scale "$(find ~/Pictures/wallpapers -type f | shuf -n 1)"'
 alias eog='eog -f %U'
 alias cfg='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias firefox='GDK_SCALE=1 firefox'
 
 function cd() {
     local __dest
@@ -59,6 +63,12 @@ case "$__distro" in
         export LSCOLORS=ExFxCxDxBxegedabagacad
         ;;
 esac
+
+if [ "$HIDPI" -eq 1 ]; then
+    export GDK_SCALE=2
+else
+    export GDK_SCALE=1
+fi
 
 # Set history format and update after every command
 HISTFILESIZE=10000
