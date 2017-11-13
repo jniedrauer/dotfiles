@@ -9,7 +9,6 @@ fi
 [ -z "$PS1" ] && return
 
 export EDITOR=/usr/bin/vim
-export BROWSER=~/.local/bin/firefox
 export TERM=xterm-256color
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
@@ -18,7 +17,6 @@ export GDK_SCALE=1
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ls='ls --color=auto'
 alias vi='vim'
 alias wp='feh --bg-scale "$(find ~/Pictures/wallpapers -type f | shuf -n 1)"'
 alias eog='eog -f %U'
@@ -28,7 +26,7 @@ function cd() {
     local __dest
     __dest="$*"
     [ $# -eq 0 ] && __dest=$HOME
-    builtin cd "$__dest" && ls -a --group-directories-first
+    builtin cd "$__dest" && ls -a
 }
 
 function copy() {
@@ -44,13 +42,21 @@ esac
 case "$__distro" in
       arch)
         export JAVA_HOME=/usr/lib/jvm/default-runtime
+        export BROWSER=~/.local/bin/firefox
+        alias ls='ls --color=auto --group-directories-first'
         ;;
     fedora)
         export JAVA_HOME=/etc/alternatives/jre
+        export BROWSER=~/.local/bin/firefox
+        alias ls='ls --color=auto --group-directories-first'
         ;;
        mac)
         JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
         export JAVA_HOME
+        export BROWSER=~/bin/firefox
+        export PATH=$PATH:~/Library/Python/2.7/bin
+        export CLICOLOR=1
+        export LSCOLORS=ExFxCxDxBxegedabagacad
         ;;
 esac
 
