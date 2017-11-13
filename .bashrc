@@ -22,7 +22,7 @@ alias ls='ls --color=auto'
 alias vi='vim'
 alias wp='feh --bg-scale "$(find ~/Pictures/wallpapers -type f | shuf -n 1)"'
 alias eog='eog -f %U'
-alias cfg='git --git-dir=/home/jniedrauer/.dotfiles/ --work-tree=/home/jniedrauer'
+alias cfg='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 function cd() {
     local __dest
