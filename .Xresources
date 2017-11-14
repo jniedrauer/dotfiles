@@ -10,7 +10,7 @@ URxvt.internalBorder:  7
 URxvt*scrollTtyOutput: false
 
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-! URxvt*scrollWithBuffer: true
+URxvt*scrollWithBuffer: true
 
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
@@ -19,11 +19,19 @@ URxvt*scrollTtyKeypress: true
 URxvt*secondaryScreen: 1
 URxvt*secondaryScroll: 0
 
+! Disable special modes
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! Change copy/paste keybind
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+
 URxvt*letterSpace: -1
 URxvt*font: xft:DejaVu Sans Mono:size=10
 
 URxvt*transparent: true
-URxvt*shading: 30
+URxvt*shading: 20
 URxvt*background: #000000
 URxvt*foreground: #ffffff
 URxvt*cursorColor: #666666
