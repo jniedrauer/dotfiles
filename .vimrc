@@ -41,23 +41,11 @@ nnoremap <space> za
 " Show docstring
 let g:SimpylFold_docstring_preview=1
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
-
-" Remember last file position
-if has("autocmd")
+" Clear duplicate autocmds
+augroup vimrc_autocmd
+  au!
+  " Remember last file position
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+  " Highlight whitespace at end of lines
+  au BufNewFile,BufRead match BadWhitespace /\s\+$/
+augroup END
