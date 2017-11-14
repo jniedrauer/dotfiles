@@ -28,7 +28,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set encoding=utf-8
-set mouse=a
 let python_highlight_all=1
 syntax on
 
