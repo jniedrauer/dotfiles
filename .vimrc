@@ -29,6 +29,7 @@ set shiftwidth=4
 set expandtab
 set encoding=utf-8
 let python_highlight_all=1
+colorscheme peachpuff
 syntax on
 
 " IDE
