@@ -70,6 +70,11 @@ else
     export GDK_SCALE=1
 fi
 
+# Source local aliases
+if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+fi
+
 # Set history format and update after every command
 HISTFILESIZE=10000
 HISTSIZE=10000
