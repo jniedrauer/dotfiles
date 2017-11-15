@@ -13,7 +13,6 @@ if [ -f ~/.dpi ]; then
 fi
 
 export EDITOR=/usr/bin/vim
-export TERM=rxvt-unicode-256color
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
 
@@ -47,17 +46,20 @@ case "$__distro" in
       arch)
         export JAVA_HOME=/usr/lib/jvm/default-runtime
         export BROWSER=~/.local/bin/firefox
+        export TERM=rxvt-unicode-256color
         alias ls='ls --color=auto --group-directories-first'
         ;;
     fedora)
         export JAVA_HOME=/etc/alternatives/jre
         export BROWSER=~/.local/bin/firefox
+        export TERM=rxvt-unicode-256color
         alias ls='ls --color=auto --group-directories-first'
         ;;
        mac)
         JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
         export JAVA_HOME
         export BROWSER=~/bin/firefox
+        export TERM=xterm-256color
         export PATH=$PATH:~/Library/Python/2.7/bin
         export CLICOLOR=1
         export LSCOLORS=ExFxCxDxBxegedabagacad
