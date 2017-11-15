@@ -78,8 +78,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Set history format and update after every command
-HISTFILESIZE=10000
-HISTSIZE=10000
+HISTFILESIZE=100000
+HISTSIZE=100000
 HISTTIMEFORMAT="%Y/%m/%d %T  "
 shopt -s histappend
 
