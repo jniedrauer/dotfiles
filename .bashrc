@@ -25,6 +25,13 @@ alias eog='eog -f %U'
 alias cfg='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias firefox='GDK_SCALE=1 firefox'
 
+function tls() {
+    echo | \
+        openssl s_client -showcerts -connect \
+        $1:443 2>/dev/null | \
+        openssl x509 -inform pem -noout -text
+}
+
 function cd() {
     local __dest
     __dest="$*"
