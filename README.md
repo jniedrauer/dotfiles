@@ -13,6 +13,19 @@ git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntra
 
 Once you have the files in place, start a new shell. You will now have an alias `cfg` for adding and storing dotfiles which points at the bare repo in ~/.dotfiles.
 
+Examples
+
+```bash
+# Add a file, commit, and push
+cfg add ~/.dotfile
+cfg commit -m "hello world"
+cfg push
+
+# Fetch and diff against origin
+cfg fetch
+cfg diff FETCH_HEAD
+```
+
 Vim setup
 ---------
 Clone Vundle
