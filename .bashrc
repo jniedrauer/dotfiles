@@ -110,6 +110,9 @@ function __prompt_command() {
         && local __e="$__y" \
         || local __e="$__n"
     PS1="${__venv}${__u}\u${__s}@${__h}\h${__s}:${__p}[\w]${__e}${__exit}${__s}\\$ ${__r}"
-    [ -n "$VIRTUAL_ENV" ] && PS1="(venv) $PS1"
+    if [ -n "$VIRTUAL_ENV" ]; then
+        __venv="${VIRTUAL_ENV##*/}"
+        PS1="($__venv) $PS1"
+    fi
     history -a # Record history after each command
 }
