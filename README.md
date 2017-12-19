@@ -15,10 +15,28 @@ Once you have the files in place, start a new shell. You will now have an alias 
 
 Vim setup
 ---------
-Clone Vundle:
+Clone Vundle
 
 ```bash
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 Open vim and run `:PluginInstall`
+
+Python Dev Environment
+----------------------
+Install requirements
+
+```bash
+pip install --user virtualenv virtualenvwrapper
+```
+
+Virtualenvwrapper cheat sheet
+
+```bash
+# Create new virtualenv
+mkvirtualenv --python <python interpreter> <name>
+
+# Switch to virtualenv
+workon <name>
+```

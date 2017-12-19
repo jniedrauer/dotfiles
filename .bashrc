@@ -12,6 +12,8 @@ if [ -f ~/.dpi ]; then
     . ~/.dpi
 fi
 
+. $(which virtualenvwrapper.sh)
+
 export EDITOR=/usr/bin/vim
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
