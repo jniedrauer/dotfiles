@@ -23,6 +23,7 @@
 [core]
     editor = vim
     excludesFiles = ~/.gitignore
+    hooksPath = ~/.githooks
 
 [merge]
     tool = vimdiff
