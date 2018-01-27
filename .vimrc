@@ -43,6 +43,8 @@ set foldlevel=99
 nnoremap <space> za
 " Show docstring
 let g:SimpylFold_docstring_preview=1
+" Enable shellcheck following
+let g:syntastic_sh_shellcheck_args="-x"
 
 " Clear duplicate autocmds
 augroup vimrc_autocmd
