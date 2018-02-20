@@ -35,17 +35,17 @@
     enabled = true
 
 [user]
-	email = jniedrauer@gmail.com
+    email = jniedrauer@gmail.com
     name = Josiah Niedrauer
 
 [push]
     default = simple
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
-	process = git-lfs filter-process --skip
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge --skip -- %f
+    process = git-lfs filter-process --skip
     required = true
 
 [lfs "customtransfer.bitbucket-media-api"]
-	path = /home/jniedrauer/git-lfs-media-adaptor/git-lfs-bitbucket-media-api
+    path = /home/jniedrauer/git-lfs-media-adaptor/git-lfs-bitbucket-media-api
