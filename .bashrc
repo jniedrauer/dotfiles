@@ -13,8 +13,8 @@ if [ -f ~/.dpi ]; then
 fi
 
 export EDITOR=/usr/bin/vim
-export GOPATH=$HOME/gocode
-export PATH=$GOPATH/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 alias cp='cp -i'
 alias mv='mv -i'
@@ -70,6 +70,8 @@ case "$__distro" in
         export PATH=$PATH:~/Library/Python/2.7/bin
         export CLICOLOR=1
         export LSCOLORS=ExFxCxDxBxegedabagacad
+        export GOROOT=/usr/local/opt/go/libexec
+        export PATH=$PATH:$GOROOT/bin
         ;;
 esac
 
