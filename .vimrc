@@ -18,7 +18,6 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
 Plugin 'integralist/vim-mypy'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'PProvost/vim-ps1'
@@ -51,6 +50,9 @@ nnoremap <space> za
 let g:SimpylFold_docstring_preview=1
 " Enable shellcheck following
 let g:syntastic_sh_shellcheck_args="-x"
+
+" Use pylintrc for syntastic
+let g:syntastic_python_pylint_args = '--rcfile=./pylintrc'
 
 " Clear duplicate autocmds
 augroup vimrc_autocmd

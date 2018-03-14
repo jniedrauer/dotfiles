@@ -20,7 +20,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias vi='vim'
-alias wp='feh --bg-scale "$(find ~/Pictures/wallpapers -type f | shuf -n 1)"'
+alias wp='~/.wp.py'
 alias eog='eog -f %U'
 alias cfg='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias firefox='GDK_SCALE=1 firefox'
@@ -42,6 +42,8 @@ function cd() {
 function copy() {
     xclip -sel c < "$2"
 }
+
+source $(which virtualenvwrapper.sh)
 
 # Distro specific aliases and env
 case "$(uname -s)" in
@@ -118,3 +120,6 @@ function __prompt_command() {
     fi
     history -a # Record history after each command
 }
+
+# added by travis gem
+[ -f /home/jniedrauer/.travis/travis.sh ] && source /home/jniedrauer/.travis/travis.sh
