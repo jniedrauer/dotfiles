@@ -61,4 +61,5 @@ augroup vimrc_autocmd
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   " Highlight whitespace at end of lines
   au BufNewFile,BufRead match BadWhitespace /\s\+$/
+  au BufNewFile,BufRead Jenkinsfile setf groovy
 augroup END
