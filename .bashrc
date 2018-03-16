@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
+    . /etc/bashrc
 fi
 
 # If not running interactively, don't do anything
@@ -84,7 +84,7 @@ fi
 
 # Source local aliases
 if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
+    . ~/.bash_aliases
 fi
 
 # Set history format and update after every command
@@ -123,4 +123,4 @@ function __prompt_command() {
 source $(which virtualenvwrapper.sh)
 
 # added by travis gem
-[ -f /home/jniedrauer/.travis/travis.sh ] && source /home/jniedrauer/.travis/travis.sh
+[ -f /home/jniedrauer/.travis/travis.sh ] && source /home/jniedrauer/.travis/travis.sh || :
