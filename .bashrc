@@ -24,6 +24,7 @@ alias wp='~/.wp.py'
 alias eog='eog -f %U'
 alias cfg='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias firefox='GDK_SCALE=1 firefox'
+alias mybad='git add -u && git commit --amend --no-edit'
 
 function tls() {
     echo | \

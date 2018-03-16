@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-
 set -eu
 
-branch_name="$(git symbolic-ref --short HEAD 2>/dev/null || :)"
-if [ -n "${branch_name:-}" ] \
-        && [ "$branch_name" != "master" ] \
-        && ! grep -q '^Merge branch' "$1"; then
-    sed -i'' -e "1s%^%$branch_name | %" "$1"
-fi
+branch="$(git symbolic-ref -q --short HEAD 2>/dev/null)" && {
+    if ! grep -q "^Merge branch\|^${branch} |" "$1" && test "$branch" != 'master'; then
+        sed -i'' -e "1s%^%${branch} | %" "$1"
+    fi
+} || :
