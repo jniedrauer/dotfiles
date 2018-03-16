@@ -41,10 +41,8 @@ function cd() {
 }
 
 function copy() {
-    xclip -sel c < "$2"
+    xclip -sel c < "$1"
 }
-
-source $(which virtualenvwrapper.sh)
 
 # Distro specific aliases and env
 case "$(uname -s)" in
@@ -121,6 +119,8 @@ function __prompt_command() {
     fi
     history -a # Record history after each command
 }
+
+source $(which virtualenvwrapper.sh)
 
 # added by travis gem
 [ -f /home/jniedrauer/.travis/travis.sh ] && source /home/jniedrauer/.travis/travis.sh
