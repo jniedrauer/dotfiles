@@ -36,6 +36,7 @@ set expandtab
 set encoding=utf-8
 set backspace=2 " MacOS is bad
 set ruler
+set clipboard=unnamedplus
 let python_highlight_all=1
 colorscheme peachpuff
 syntax on
