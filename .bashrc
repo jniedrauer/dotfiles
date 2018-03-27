@@ -29,7 +29,7 @@ alias mybad='git add -u && git commit --amend --no-edit'
 function tls() {
     echo | \
         openssl s_client -showcerts -connect \
-        $1:443 2>/dev/null | \
+        $1:443 -servername $1 2>/dev/null | \
         openssl x509 -inform pem -noout -text
 }
 
