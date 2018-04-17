@@ -16,6 +16,7 @@
     save = commit -m'savepoint'
     st = status -sb
     pull = pull --rebase
+    fp = push --force-with-lease
 
 [color]
     ui = true
