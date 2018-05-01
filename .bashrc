@@ -68,7 +68,7 @@ case "$__distro" in
         export JAVA_HOME
         export BROWSER=~/bin/firefox
         export TERM=xterm-256color
-        export PATH=$PATH:~/Library/Python/2.7/bin
+        export PATH=$PATH:~/Library/Python/3.6/bin/:~/Library/Python/2.7/bin
         export CLICOLOR=1
         export LSCOLORS=ExFxCxDxBxegedabagacad
         export GOROOT=/usr/local/opt/go/libexec
