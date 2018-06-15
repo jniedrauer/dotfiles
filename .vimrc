@@ -53,7 +53,9 @@ let g:SimpylFold_docstring_preview=1
 let g:syntastic_sh_shellcheck_args="-x"
 
 " Use pylintrc for syntastic
-let g:syntastic_python_pylint_args = '--rcfile=./pylintrc'
+if filereadable('./pylintrc')
+  let g:syntastic_python_pylint_args = '--rcfile=./pylintrc'
+endif
 
 " Clear duplicate autocmds
 augroup vimrc_autocmd
@@ -64,3 +66,12 @@ augroup vimrc_autocmd
   au BufNewFile,BufRead match BadWhitespace /\s\+$/
   au BufNewFile,BufRead Jenkinsfile setf groovy
 augroup END
+
+" Cloudformation stuff
+function ParametersJson()
+    :%g/\s\+Type/d
+    :%g/\s\+Default/d
+    :%g/\s\+Description/d
+    :%s/^  /  {\r    "ParameterKey": "/
+    :%s/:$/",\r    "ParameterValue": "#{}"\r  },/
+endfunction
